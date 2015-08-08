@@ -22,9 +22,13 @@ datazip <- "./data/temp.zip"
 #
 if (! file.exists(datafile)) {
   
+  # create dir if doesn't exist
+  #
+  dir.create(datadir, showWarnings = FALSE)
+  
   # download the file
   #
-  download.file(dataurl,datazip,method="curl")
+  download.file(dataurl,datazip,method="curl",quiet=TRUE)
   
   # unzip the file, note that if datadir does not exist unzip should create it
   #
